@@ -93,20 +93,36 @@
 
         <section id="contact">
             <h2>Contact me</h2>
-            <form action="mailto:andreas.nilsson0321@stud.hkr.se" method="post" enctype="text/plain">
+            <form method="post" enctype="text/plain">
                 <div class="form-row">
                     <div class="form-col">
-                        <label for="name">Name</label>
-                        <input type="text" name="Name" id="name">
+                        <label for="firstName">Fist Name</label>
+                        <input type="text" name="firstName" id="firstName">
                     </div>
                     <div class="form-col">
-                        <label for="email">Email</label>
-                        <input type="email" name="Email" id="email">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName">
                     </div>
                 </div>
-                <label for="message">Message</label>
-                <textarea id="message" rows="6"></textarea>
-
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-row">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject">
+                        <option value="">Choose a subject</option>
+                        <option value="plan excursion">Plan excursion</option>
+                        <option value="discuss Academic interests">Discuss Academic interests</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6"></textarea>
+                </div>
+                <button type="reset">Clear/Reset</button>
+                
                 <button type="submit">Send</button>
             </form>
         </section>
