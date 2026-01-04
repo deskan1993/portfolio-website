@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Personal website</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#academic">Interests</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://www.google.com">External page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1>About me</h1>
+            <div class="col">
+                <img src="aboutMePic.jpg" alt="profile picture of Andreas" />
+                <p id="aboutImgTxt">A picture of me scubadiving</p>
+            </div>
+            <div class="col">
+                <p>I'm Andreas, from Kristianstad with a strong interest in science and technology. As a child I spent
+                    hours building with lego, figuring out how to create structures and models. In secondary
+                    school, I studied IT-Media, which gave me a chance to explore programming and digitaldesign. Today,
+                    I'm
+                    working toward a career in a medical field where I can apply scientific
+                    knowledge in a hands-on way. While I'm deeply interested in chemistry and how it relates to health,
+                    I also enjoy programming as a creative outlet. I enjoy the process of taking an idea and turning it
+                    into something functional, even if it is just a hobby. I balance my studies with visiting museums
+                    and traveling whenever I get the chance.</p>
+                <table>
+                    <tr>
+                        <td>Quick Facts</td>
+                        <td>Programming</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>Kristianstad</td>
+                    </tr>
+                    <tr>
+                        <td>Favorite Tool</td>
+                        <td>VS Code</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="academic">
+            <h2>Academic interests & hobbies</h2>
+            <p>I became interested in programming because it was fun to make something out of nothing. There's something
+                satisfying about writing a few lines of code, eventually turn into something more complex with time.
+            </p>
+            <ul>
+                <li><strong>Develop applications</strong> - Using diffrent languages such as Java and C#</li>
+                <li><strong>Visit museums</strong> - Exploring history and science exhibits</li>
+                <li><strong>Traveling</strong> - Experiencing new countries</li>
+            </ul>
+
+            <div class="image-row">
+                <div>
+                    <img src="int1.jpg" alt="Collection of different rocks at a museum">
+                    <p class="caption">Collection of different rocks at a museum</p>
+                </div>
+                <div>
+                    <img src="int2.jpg" alt="Scenic view of a park in London">
+                    <p class="caption">Scenic view of a park in London</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals">
+            <h2>Future goals</h2>
+            <p>My primary goal is to work in a medical field. This goal matters to me because I want to be part of work
+                that genuinely helps people and makes a difference in their health and everyday lives. I have always
+                enjoyed working with my hands, and I find it rewarding when I can do something practical and see the
+                results of my effort. That is one of the reasons a medical career feels like the right path for me. At
+                the same time, I want programming to stay a meaningful hobby in my life. I enjoy the creativity
+                it gives me, and also how I can sit down, focus on a problem and slowly build a solution in my own
+                way.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact me</h2>
+            <form action="mailto:andreas.nilsson0321@stud.hkr.se" method="post" enctype="text/plain">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="name">Name</label>
+                        <input type="text" name="Name" id="name">
+                    </div>
+                    <div class="form-col">
+                        <label for="email">Email</label>
+                        <input type="email" name="Email" id="email">
+                    </div>
+                </div>
+                <label for="message">Message</label>
+                <textarea id="message" rows="6"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="mailto:andreas.nilsson0321@stud.hkr.se">Contact me</a>
+        </nav>
+        <p>&copy; 2025 Andreas Nilsson. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
