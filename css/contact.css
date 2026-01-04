@@ -1,0 +1,85 @@
+:root {
+    --bg: #fcfcfc;
+    --txtMain: #333;
+    --txtSecondary: #666;
+    --txtLight: #888;
+    --border: #aaaaaa;
+    --borderDark: black;
+    --white: white;
+    --overlay: rgba(0, 0, 0, 0.6);
+    --btnBg: #333;
+    --btnHover: #555;
+}
+
+/* CONTACT */
+#contact form {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#contact form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#contact form input,
+#contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: block;
+    font-family: Arial, sans-serif;
+}
+
+#contact form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#contact form input:hover,
+#contact form textarea:hover {
+    border-color: var(--txtLight);
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+    outline: none;
+    border-color: var(--txtSecondary);
+}
+
+#contact form button {
+    width: auto;
+    background-color: var(--btnBg);
+    color: var(--white);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    display: block;
+    margin-left: auto;
+}
+
+#contact form button:hover {
+    background-color: var(--btnHover);
+}
+
+.form-col {
+    float: left;
+    width: 49%;
+    margin-right: 2%;
+    box-sizing: border-box;
+}
+
+.form-col:last-child {
+    margin-right: 0;
+}
+
+.form-row::after {
+    content: "";
+    display: block;
+    clear: both;
+}
