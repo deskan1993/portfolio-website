@@ -72,6 +72,22 @@
     margin-left: auto;
 }
 
+#contact form input.errorBorder,
+#contact form textarea.errorBorder,
+#contact form select.errorBorder {
+    border: 1px solid var(--error);
+}
+
+#contact form input.validBorder,
+#contact form textarea.validBorder,
+#contact form select.validBorder {
+    border: 1px solid var(--valid);
+}
+
+small {
+    color: var(--error);
+}
+
 .form-col {
     float: left;
     width: 49%;

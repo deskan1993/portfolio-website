@@ -6,4 +6,43 @@ const email = document.getElementById("email");
 const subject = document.getElementById("subject");
 const message = document.getElementById("message");
 const resetBtn = document.getElementById("resetBtn");
+const submitBtn = document.getElementById("submitBtn");
 
+const firstNameError = document.getElementById("fnError");
+
+//Show error
+function showError(input, errorElm, msg) {
+    errorElm.textContent = msg;
+    input.classList.add("errorBorder");
+    input.classList.remove("validBorder");
+}
+
+//Clear error
+function clearError(input, errorElm) {
+    errorElm.textContent = "";
+    input.classList.remove("errorBorder");
+    input.classList.add("validBorder");
+}
+
+//Validate name
+function validateName(input, errorElm) {
+    const validReg = /^[A-Za-z]+$/;
+    if (!validReg.test(input.value)) {
+        showError(input, errorElm, "Only letters allowed");
+        return false;
+    } else {
+        clearError(input, errorElm);
+        return true;
+    }
+}
+
+
+
+
+//submit
+submitBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    validateName(firstName, firstNameError);
+
+});

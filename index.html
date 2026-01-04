@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/contact.css"
+    <link rel="stylesheet" href="./css/contact.css">
 </head>
 
 <body>
@@ -97,8 +97,9 @@
             <form id="contactForm" method="post" enctype="text/plain">
                 <div class="form-row">
                     <div class="form-col">
-                        <label for="firstName">Fist Name</label>
+                        <label for="firstName">First Name</label>
                         <input type="text" name="firstName" id="firstName">
+                        <small id="fnError"></small>
                     </div>
                     <div class="form-col">
                         <label for="lastName">Last Name</label>
@@ -124,7 +125,7 @@
                 </div>
                 <button type="button" id="resetBtn">Clear/Reset</button>
 
-                <button type="submit">Send</button>
+                <button type="submit" id="submitBtn">Send</button>
             </form>
         </section>
     </main>
@@ -137,6 +138,8 @@
         </nav>
         <p>&copy; 2025 Andreas Nilsson. All rights reserved.</p>
     </footer>
+
+    <script src="./js/contact.js"></script>
 </body>
 
 </html>
