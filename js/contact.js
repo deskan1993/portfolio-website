@@ -18,6 +18,17 @@ const phoneError = document.getElementById("phoneError");
 
 const RTCtxt = document.getElementById("RTCtxt");
 
+//is empty check
+function isEmpty(input, errorElm) {
+    const value = input.value.trim();
+    
+    if (value === "") {
+        showError(input, errorElm, "This field is required");
+        return true; // Returns true if empty
+    }
+    return false; // Returns false if not empty
+}
+
 //Show error
 function showError(input, errorElm, msg) {
     errorElm.textContent = msg;
