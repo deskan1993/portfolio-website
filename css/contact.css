@@ -107,4 +107,5 @@ small {
 
 .success-message {
     display: none;
+    text-align: center;
 }
