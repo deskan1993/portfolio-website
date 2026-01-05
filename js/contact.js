@@ -187,6 +187,8 @@ submitBtn.addEventListener("click", function (event) {
         setTimeout(() => {
             successMsg.style.display = "none";
         }, 3000);
+
+        clearForm();
     }
 });
 
