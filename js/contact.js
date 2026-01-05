@@ -22,7 +22,7 @@ const RTCtxt = document.getElementById("RTCtxt");
 const successMsg = document.getElementById("successMsg");
 
 
-//is empty check
+// Check if a field is empty
 function isEmpty(input, errorElm) {
     const value = input.value.trim();
 
@@ -33,7 +33,7 @@ function isEmpty(input, errorElm) {
     return false; // Returns false if not empty
 }
 
-//Show error
+// Show error message and apply red border
 function showError(input, errorElm, msg) {
     errorElm.textContent = msg;
     errorElm.classList.add("show");
@@ -41,7 +41,7 @@ function showError(input, errorElm, msg) {
     input.classList.remove("validBorder");
 }
 
-//Clear error
+// Clear error message and apply green border
 function clearError(input, errorElm) {
     errorElm.classList.remove("show");
     input.classList.remove("errorBorder");
@@ -53,13 +53,13 @@ function clearError(input, errorElm) {
     }, 1000); // match CSS transition duration
 }
 
-//Validate name
+// Validate first and last name
 function validateName(input, errorElm) {
     if (isEmpty(input, errorElm)) {
         return false;
     }
 
-    const validReg = /^[A-Za-z]+$/;
+    const validReg = /^[A-Za-z]+$/; // regex: only letters
     if (!validReg.test(input.value.trim())) {
         showError(input, errorElm, "Only letters allowed");
         return false;
@@ -69,7 +69,7 @@ function validateName(input, errorElm) {
     }
 }
 
-//Validate email
+// Validate email format
 function validateEmail(input, errorElm) {
     if (isEmpty(input, errorElm)) {
         return false;
@@ -85,12 +85,12 @@ function validateEmail(input, errorElm) {
     }
 }
 
-//Validate phone
+// Validate phone number
 function validatePhone(input, errorElm) {
     const validReg = /^\d+$/; //only allows digits 0-9
     const value = input.value;
 
-    // empty check, empty is ok as this field is optional
+    // empty is allowed due to field being optional
     if (value === "") {
         input.classList.remove("errorBorder", "validBorder");
         errorElm.textContent = "";
@@ -106,7 +106,7 @@ function validatePhone(input, errorElm) {
     }
 }
 
-//Validate subject
+// Validate subject dropdown
 function validateSubject() {
     if (subject.value === "") {
         showError(subject, subjectError, "Please choose a subject");
@@ -117,7 +117,7 @@ function validateSubject() {
     }
 }
 
-//Validate message
+// Validate message textarea (min 20 characters)
 function validateMessage(input, errorElm) {
     if (isEmpty(input, errorElm)) {
         return false;
@@ -133,7 +133,7 @@ function validateMessage(input, errorElm) {
     }
 }
 
-//Real-time-counter for message
+// Real-time Character Counter
 function updateCharCounter() {
     const length = message.value.length;
     RTCtxt.textContent = length + " / 20 characters";
@@ -145,12 +145,12 @@ function updateCharCounter() {
     }
 }
 
-//Reset
+// Reset / Clear Form
 resetBtn.addEventListener("click", function () {
     clearForm();
 });
 
-//Clear form function
+// Reset / Clear Form function
 function clearForm() {
     form.reset();
 
@@ -172,7 +172,7 @@ function clearForm() {
     RTCtxt.style.color = "#dc3545";
 }
 
-//submit
+// Form Submission
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -182,7 +182,8 @@ submitBtn.addEventListener("click", function (event) {
     const isPhoneValid = validatePhone(phone, phoneError);
     const isSubjectValid = validateSubject();
     const isMessageValid = validateMessage(message, messageError);
-
+    
+    // If all fields valid, show success message
     if (
         isFirstNameValid &&
         isLastNameValid &&
@@ -203,12 +204,12 @@ submitBtn.addEventListener("click", function (event) {
             successMsg.textContent = "";
         }, 3000);
 
-        clearForm();
+        clearForm();  // reset form after success
     }
 });
 
-// Update counter as user types
+// Update character counter as user types
 message.addEventListener("input", updateCharCounter);
 
-// Initialize counter when page loads
+// Initialize counter on page load
 updateCharCounter();
