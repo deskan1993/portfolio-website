@@ -67,9 +67,22 @@
     border-color: var(--border);
     border-radius: 5px;
     font-size: 14px;
-    display: block;
     cursor: pointer;
-    margin-left: auto;
+}
+
+#form-btn-row {
+    text-align: right;
+    margin-top: 20px;
+    clear: both;
+}
+
+#form-btn-row button {
+    display: inline-block;
+    float: none;
+}
+
+ #submitBtn{
+    margin-left: 20px;
 }
 
 #contact form input.errorBorder,
