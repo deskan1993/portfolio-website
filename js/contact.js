@@ -148,6 +148,7 @@ resetBtn.addEventListener("click", function () {
     emailError.textContent = "";
     phoneError.textContent = "";
     messageError.textContent = "";
+    subjectError.textContent ="";
 
     const inputs = [firstName, lastName, email, message, phone, subject];
     inputs.forEach(input => {
