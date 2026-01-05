@@ -141,6 +141,11 @@ function updateCharCounter() {
 
 //Reset
 resetBtn.addEventListener("click", function () {
+    clearForm();
+});
+
+//Clear form function
+function clearForm(){
     form.reset();
 
     firstNameError.textContent = "";
@@ -154,7 +159,7 @@ resetBtn.addEventListener("click", function () {
     inputs.forEach(input => {
         input.classList.remove("validBorder", "errorBorder");
     });
-});
+}
 
 //submit
 submitBtn.addEventListener("click", function (event) {
