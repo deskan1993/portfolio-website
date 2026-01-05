@@ -159,8 +159,9 @@ function clearForm(){
     inputs.forEach(input => {
         input.classList.remove("validBorder", "errorBorder");
     });
-    
+
     RTCtxt.textContent = "0 / 20 characters";
+    RTCtxt.style.color = "#dc3545";
 }
 
 //submit
