@@ -104,3 +104,7 @@ small {
     display: block;
     clear: both;
 }
+
+.success-message {
+    display: none;
+}

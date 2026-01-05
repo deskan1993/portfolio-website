@@ -13,16 +13,19 @@ const submitBtn = document.getElementById("submitBtn");
 const firstNameError = document.getElementById("fnError");
 const lastNameError = document.getElementById("lnError");
 const emailError = document.getElementById("emailError");
-const messageError =document.getElementById("msgError");
+const messageError = document.getElementById("msgError");
 const phoneError = document.getElementById("phoneError");
 const subjectError = document.getElementById("subjectError");
 
 const RTCtxt = document.getElementById("RTCtxt");
 
+const successMsg = document.getElementById("successMsg");
+
+
 //is empty check
 function isEmpty(input, errorElm) {
     const value = input.value.trim();
-    
+
     if (value === "") {
         showError(input, errorElm, "This field is required");
         return true; // Returns true if empty
@@ -113,7 +116,7 @@ function validateMessage(input, errorElm) {
     if (isEmpty(input, errorElm)) {
         return false;
     }
-    
+
     const value = input.value.trim();
     if (value.length < 20) {
         showError(input, errorElm, "Message must be at least 20 characters");
@@ -128,7 +131,7 @@ function validateMessage(input, errorElm) {
 function updateCharCounter() {
     const length = message.value.length;
     RTCtxt.textContent = length + " / 20 characters";
-    
+
     if (length < 20) {
         RTCtxt.style.color = "#dc3545";
     } else {
@@ -146,7 +149,7 @@ resetBtn.addEventListener("click", function () {
     phoneError.textContent = "";
     messageError.textContent = "";
 
-    const inputs = [firstName, lastName, email, message,phone,subject];
+    const inputs = [firstName, lastName, email, message, phone, subject];
     inputs.forEach(input => {
         input.classList.remove("validBorder", "errorBorder");
     });
@@ -156,13 +159,29 @@ resetBtn.addEventListener("click", function () {
 submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
-    validateName(firstName, firstNameError);
-    validateName(lastName, lastNameError);
-    validateEmail(email, emailError);
-    validatePhone(phone,phoneError);
-    validateSubject();
-    validateMessage(message, messageError);
+    const isFirstNameValid = validateName(firstName, firstNameError);
+    const isLastNameValid = validateName(lastName, lastNameError);
+    const isEmailValid = validateEmail(email, emailError);
+    const isPhoneValid = validatePhone(phone, phoneError);
+    const isSubjectValid = validateSubject();
+    const isMessageValid = validateMessage(message, messageError);
 
+    if (
+        isFirstNameValid &&
+        isLastNameValid &&
+        isEmailValid &&
+        isPhoneValid &&
+        isSubjectValid &&
+        isMessageValid
+    ) {
+        successMsg.textContent =
+            `Thank you ${firstName.value.trim()}!, I will get back to you soon.`;
+        successMsg.style.display = "block";
+
+        setTimeout(() => {
+            successMsg.style.display = "none";
+        }, 3000);
+    }
 });
 
 // Update counter as user types
