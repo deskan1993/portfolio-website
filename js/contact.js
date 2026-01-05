@@ -170,9 +170,6 @@ function clearForm() {
 
     RTCtxt.textContent = "0 / 20 characters";
     RTCtxt.style.color = "#dc3545";
-
-    successMsg.style.opacity = 0;
-    successMsg.textContent = "";
 }
 
 //submit
@@ -203,6 +200,7 @@ submitBtn.addEventListener("click", function (event) {
         // Fade out after 3 seconds
         setTimeout(() => {
             successMsg.style.opacity = 0;
+            successMsg.textContent = "";
         }, 3000);
 
         clearForm();
