@@ -75,6 +75,7 @@ function validateEmail(input, errorElm) {
         return false;
     }
 
+    //checks for "something@something.something"
     const validReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!validReg.test(input.value.trim())) {
         showError(input, errorElm, "Enter a valid email adress");
