@@ -9,6 +9,7 @@ const resetBtn = document.getElementById("resetBtn");
 const submitBtn = document.getElementById("submitBtn");
 
 const firstNameError = document.getElementById("fnError");
+const lastNameError = document.getElementById("lnError");
 
 //Show error
 function showError(input, errorElm, msg) {
@@ -44,5 +45,6 @@ submitBtn.addEventListener("click", function (event) {
     event.preventDefault();
 
     validateName(firstName, firstNameError);
+    validateName(lastName, lastNameError);
 
 });
