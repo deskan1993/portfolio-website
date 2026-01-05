@@ -145,7 +145,7 @@ resetBtn.addEventListener("click", function () {
 });
 
 //Clear form function
-function clearForm(){
+function clearForm() {
     form.reset();
 
     firstNameError.textContent = "";
@@ -153,7 +153,7 @@ function clearForm(){
     emailError.textContent = "";
     phoneError.textContent = "";
     messageError.textContent = "";
-    subjectError.textContent ="";
+    subjectError.textContent = "";
 
     const inputs = [firstName, lastName, email, message, phone, subject];
     inputs.forEach(input => {
@@ -187,8 +187,11 @@ submitBtn.addEventListener("click", function (event) {
             `Thank you ${firstName.value.trim()}!, I will get back to you soon.`;
         successMsg.style.display = "block";
 
+        successMsg.style.opacity = 1;
+
+        // Fade out after 3 seconds
         setTimeout(() => {
-            successMsg.style.display = "none";
+            successMsg.style.opacity = 0;
         }, 3000);
 
         clearForm();
