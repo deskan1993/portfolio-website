@@ -59,6 +59,14 @@ function validateEmail(input, errorElm) {
 //Validate phone
 function validatePhone(input, errorElm) {
     const validReg = /^\d+$/; //only allows digits 0-9
+
+    // empty check, empty is ok as this field is optional
+    if (value === "") {
+        input.classList.remove("errorBorder", "validBorder");
+        errorElm.textContent = "";
+        return true;
+    }
+
     if (!validReg.test(input.value)) {
         showError(input, errorElm, "Enter a valid phone number");
         return false;
