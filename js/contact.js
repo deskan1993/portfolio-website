@@ -87,7 +87,7 @@ resetBtn.addEventListener("click", function () {
     phoneError.textContent = "";
     messageError.textContent = "";
 
-    const inputs = [firstName, lastName, email, message];
+    const inputs = [firstName, lastName, email, message,phone];
     inputs.forEach(input => {
         input.classList.remove("validBorder", "errorBorder");
     });
