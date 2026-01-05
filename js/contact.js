@@ -63,6 +63,20 @@ function validateMessage(input, errorElm) {
     }
 }
 
+//Reset
+resetBtn.addEventListener("click", function () {
+    form.reset();
+
+    firstNameError.textContent = "";
+    lastNameError.textContent = "";
+    emailError.textContent = "";
+    messageError.textContent = "";
+
+    const inputs = [firstName, lastName, email, message];
+    inputs.forEach(input => {
+        input.classList.remove("validBorder", "errorBorder");
+    });
+});
 
 //submit
 submitBtn.addEventListener("click", function (event) {
