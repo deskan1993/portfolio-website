@@ -11,6 +11,12 @@
     --valid: green;
 }
 
+/* Removes browser specigic styles */
+input, textarea, select, button {
+    -moz-appearance: none; /* remove Firefox default styling */
+    -webkit-appearance: none; /* remove Chrome/Safari default styling */
+}
+
 /* CONTACT */
 #contact form {
     width: 80%;
@@ -29,6 +35,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 0px;
+    background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: 5px;
     box-sizing: border-box;
@@ -43,7 +50,8 @@
 
 #contact form input:hover,
 #contact form textarea:hover,
-#contact form select:hover {
+#contact form select:hover,
+#contact form select option:hover {
     border-color: var(--hover);
 }
 
