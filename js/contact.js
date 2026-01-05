@@ -16,6 +16,8 @@ const emailError = document.getElementById("emailError");
 const messageError =document.getElementById("msgError");
 const phoneError = document.getElementById("phoneError");
 
+const RTCtxt = document.getElementById("RTCtxt");
+
 //Show error
 function showError(input, errorElm, msg) {
     errorElm.textContent = msg;
@@ -77,6 +79,18 @@ function validateMessage(input, errorElm) {
     }
 }
 
+//Real-time-counter for message
+function updateCharCounter() {
+    const length = message.value.length;
+    RTCtxt.textContent = length + " / 20 characters";
+    
+    if (length < 20) {
+        RTCtxt.style.color = "#dc3545";
+    } else {
+        RTCtxt.style.color = "green";
+    }
+}
+
 //Reset
 resetBtn.addEventListener("click", function () {
     form.reset();
@@ -104,3 +118,9 @@ submitBtn.addEventListener("click", function (event) {
     validateMessage(message, messageError);
 
 });
+
+// Update counter as user types
+message.addEventListener("input", updateCharCounter);
+
+// Initialize counter when page loads
+updateCharCounter();
