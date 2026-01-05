@@ -3,6 +3,7 @@ const form = document.getElementById("contactForm");
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
+const phone = document.getElementById("phone");
 const subject = document.getElementById("subject");
 const message = document.getElementById("message");
 
@@ -13,6 +14,7 @@ const firstNameError = document.getElementById("fnError");
 const lastNameError = document.getElementById("lnError");
 const emailError = document.getElementById("emailError");
 const messageError =document.getElementById("msgError");
+const phoneError = document.getElementById("phoneError");
 
 //Show error
 function showError(input, errorElm, msg) {
@@ -45,6 +47,18 @@ function validateEmail(input, errorElm) {
     const validReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!validReg.test(input.value)) {
         showError(input, errorElm, "Enter a valid email adress");
+        return false;
+    } else {
+        clearError(input, errorElm);
+        return true;
+    }
+}
+
+//Validate phone
+function validatePhone(input, errorElm) {
+    const validReg = /^\d+$/; //only allows digits 0-9
+    if (!validReg.test(input.value)) {
+        showError(input, errorElm, "Enter a valid phone number");
         return false;
     } else {
         clearError(input, errorElm);
@@ -85,6 +99,7 @@ submitBtn.addEventListener("click", function (event) {
     validateName(firstName, firstNameError);
     validateName(lastName, lastNameError);
     validateEmail(email, emailError);
+    validatePhone(phone,phoneError);
     validateMessage(message, messageError);
 
 });
