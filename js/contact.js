@@ -68,6 +68,19 @@ function validatePhone(input, errorElm) {
     }
 }
 
+//Validate subject
+function validateSubject() {
+    if (subject.value === "") {
+        subject.classList.add("errorBorder");
+        subject.classList.remove("validBorder");
+        return false;
+    } else {
+        subject.classList.remove("errorBorder");
+        subject.classList.add("validBorder");
+        return true;
+    }
+}
+
 //Validate message
 function validateMessage(input, errorElm) {
     if (input.value.length < 20) {
@@ -115,6 +128,7 @@ submitBtn.addEventListener("click", function (event) {
     validateName(lastName, lastNameError);
     validateEmail(email, emailError);
     validatePhone(phone,phoneError);
+    validateSubject();
     validateMessage(message, messageError);
 
 });
