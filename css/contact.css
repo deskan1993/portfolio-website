@@ -62,7 +62,13 @@ input, textarea, select, button {
 
 #contact form input:focus,
 #contact form textarea:focus,
-#contact form select:focus {
+#contact form select:focus,
+#contact form input.validBorder:focus,
+#contact form textarea.validBorder:focus,
+#contact form select.validBorder:focus,
+#contact form input.errorBorder:focus,
+#contact form textarea.errorBorder:focus,
+#contact form select.errorBorder:focus {
     outline: none;
     border-color: var(--focus);
 }
