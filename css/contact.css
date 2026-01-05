@@ -28,7 +28,7 @@
 #contact form select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border: 1px solid var(--border);
     border-radius: 5px;
     box-sizing: border-box;
@@ -103,6 +103,10 @@ small.error.show{
 
 .form-col:last-child {
     margin-right: 0;
+}
+
+.form-row{
+    min-height: 95px;
 }
 
 .form-row::after {
