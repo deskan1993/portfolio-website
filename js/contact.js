@@ -84,6 +84,7 @@ resetBtn.addEventListener("click", function () {
     firstNameError.textContent = "";
     lastNameError.textContent = "";
     emailError.textContent = "";
+    phoneError.textContent = "";
     messageError.textContent = "";
 
     const inputs = [firstName, lastName, email, message];
