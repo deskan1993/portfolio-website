@@ -12,6 +12,7 @@ const submitBtn = document.getElementById("submitBtn");
 const firstNameError = document.getElementById("fnError");
 const lastNameError = document.getElementById("lnError");
 const emailError = document.getElementById("emailError");
+const messageError =document.getElementById("msgError");
 
 //Show error
 function showError(input, errorElm, msg) {
@@ -51,6 +52,17 @@ function validateEmail(input, errorElm) {
     }
 }
 
+//Validate message
+function validateMessage(input, errorElm) {
+    if (input.value.length < 20) {
+        showError(input, errorElm, "Message must be at least 20 characters");
+        return false;
+    } else {
+        clearError(input, errorElm);
+        return true;
+    }
+}
+
 
 //submit
 submitBtn.addEventListener("click", function (event) {
@@ -59,5 +71,6 @@ submitBtn.addEventListener("click", function (event) {
     validateName(firstName, firstNameError);
     validateName(lastName, lastNameError);
     validateEmail(email, emailError);
+    validateMessage(message, messageError);
 
 });
