@@ -15,6 +15,7 @@ const lastNameError = document.getElementById("lnError");
 const emailError = document.getElementById("emailError");
 const messageError =document.getElementById("msgError");
 const phoneError = document.getElementById("phoneError");
+const subjectError = document.getElementById("subjectError");
 
 const RTCtxt = document.getElementById("RTCtxt");
 
@@ -99,12 +100,10 @@ function validatePhone(input, errorElm) {
 //Validate subject
 function validateSubject() {
     if (subject.value === "") {
-        subject.classList.add("errorBorder");
-        subject.classList.remove("validBorder");
+        showError(subject, subjectError, "Please choose a subject");
         return false;
     } else {
-        subject.classList.remove("errorBorder");
-        subject.classList.add("validBorder");
+        clearError(subject, subjectError);
         return true;
     }
 }
