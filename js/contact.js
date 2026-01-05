@@ -43,7 +43,7 @@ function showError(input, errorElm, msg) {
 
 //Clear error
 function clearError(input, errorElm) {
-     errorElm.classList.remove("show");
+    errorElm.classList.remove("show");
     input.classList.remove("errorBorder");
     input.classList.add("validBorder");
 
@@ -154,23 +154,19 @@ resetBtn.addEventListener("click", function () {
 function clearForm() {
     form.reset();
 
-    firstNameError.textContent = "";
-    lastNameError.textContent = "";
-    emailError.textContent = "";
-    phoneError.textContent = "";
-    messageError.textContent = "";
-    subjectError.textContent = "";
-
     const errorElements = [firstNameError, lastNameError, emailError, phoneError, messageError, subjectError];
+
     errorElements.forEach(elm => {
         elm.classList.remove("show");
-        elm.textContent = "";
+
+        // wait for CSS transition to finish (match 1s)
+        setTimeout(() => {
+            elm.textContent = "";
+        }, 1000);
     });
 
     const inputs = [firstName, lastName, email, message, phone, subject];
-    inputs.forEach(input => {
-        input.classList.remove("validBorder", "errorBorder");
-    });
+    inputs.forEach(input => input.classList.remove("validBorder", "errorBorder"));
 
     RTCtxt.textContent = "0 / 20 characters";
     RTCtxt.style.color = "#dc3545";
