@@ -45,8 +45,12 @@ function clearError(input, errorElm) {
 
 //Validate name
 function validateName(input, errorElm) {
+    if (isEmpty(input, errorElm)) {
+        return false;
+    }
+
     const validReg = /^[A-Za-z]+$/;
-    if (!validReg.test(input.value)) {
+    if (!validReg.test(input.value.trim())) {
         showError(input, errorElm, "Only letters allowed");
         return false;
     } else {
@@ -57,8 +61,12 @@ function validateName(input, errorElm) {
 
 //Validate email
 function validateEmail(input, errorElm) {
+    if (isEmpty(input, errorElm)) {
+        return false;
+    }
+
     const validReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!validReg.test(input.value)) {
+    if (!validReg.test(input.value.trim())) {
         showError(input, errorElm, "Enter a valid email adress");
         return false;
     } else {
@@ -103,7 +111,12 @@ function validateSubject() {
 
 //Validate message
 function validateMessage(input, errorElm) {
-    if (input.value.length < 20) {
+    if (isEmpty(input, errorElm)) {
+        return false;
+    }
+    
+    const value = input.value.trim();
+    if (value.length < 20) {
         showError(input, errorElm, "Message must be at least 20 characters");
         return false;
     } else {
