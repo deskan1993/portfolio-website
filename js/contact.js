@@ -5,11 +5,13 @@ const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const subject = document.getElementById("subject");
 const message = document.getElementById("message");
+
 const resetBtn = document.getElementById("resetBtn");
 const submitBtn = document.getElementById("submitBtn");
 
 const firstNameError = document.getElementById("fnError");
 const lastNameError = document.getElementById("lnError");
+const emailError = document.getElementById("emailError");
 
 //Show error
 function showError(input, errorElm, msg) {
@@ -37,7 +39,17 @@ function validateName(input, errorElm) {
     }
 }
 
-
+//Validate email
+function validateEmail(input, errorElm) {
+    const validReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!validReg.test(input.value)) {
+        showError(input, errorElm, "Enter a valid email adress");
+        return false;
+    } else {
+        clearError(input, errorElm);
+        return true;
+    }
+}
 
 
 //submit
@@ -46,5 +58,6 @@ submitBtn.addEventListener("click", function (event) {
 
     validateName(firstName, firstNameError);
     validateName(lastName, lastNameError);
+    validateEmail(email, emailError);
 
 });
