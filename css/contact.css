@@ -84,8 +84,14 @@
     border: 1px solid var(--valid);
 }
 
-small {
+small.error {
     color: var(--error);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+small.error.show{
+    opacity: 1;
 }
 
 .form-col {

@@ -36,15 +36,21 @@ function isEmpty(input, errorElm) {
 //Show error
 function showError(input, errorElm, msg) {
     errorElm.textContent = msg;
+    errorElm.classList.add("show");
     input.classList.add("errorBorder");
     input.classList.remove("validBorder");
 }
 
 //Clear error
 function clearError(input, errorElm) {
-    errorElm.textContent = "";
+     errorElm.classList.remove("show");
     input.classList.remove("errorBorder");
     input.classList.add("validBorder");
+
+    // Remove text after fade-out completes
+    setTimeout(() => {
+        errorElm.textContent = "";
+    }, 1000); // match CSS transition duration
 }
 
 //Validate name
@@ -155,6 +161,12 @@ function clearForm() {
     messageError.textContent = "";
     subjectError.textContent = "";
 
+    const errorElements = [firstNameError, lastNameError, emailError, phoneError, messageError, subjectError];
+    errorElements.forEach(elm => {
+        elm.classList.remove("show");
+        elm.textContent = "";
+    });
+
     const inputs = [firstName, lastName, email, message, phone, subject];
     inputs.forEach(input => {
         input.classList.remove("validBorder", "errorBorder");
@@ -162,6 +174,9 @@ function clearForm() {
 
     RTCtxt.textContent = "0 / 20 characters";
     RTCtxt.style.color = "#dc3545";
+
+    successMsg.style.opacity = 0;
+    successMsg.textContent = "";
 }
 
 //submit
