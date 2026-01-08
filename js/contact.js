@@ -203,7 +203,7 @@ submitBtn.addEventListener("click", function (event) {
         setTimeout(() => {
             successMsg.style.opacity = 0;
             successMsg.textContent = "";
-        }, 3000);
+        }, 5000);
 
         clearForm();  // reset form after success
     }

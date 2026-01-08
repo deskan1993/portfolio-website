@@ -147,5 +147,5 @@ small.error.show{
     opacity: 0;
     text-align: center;
     color: var(--valid);
-    transition: opacity 1s ease;
+    transition: opacity 5s ease;
 }
